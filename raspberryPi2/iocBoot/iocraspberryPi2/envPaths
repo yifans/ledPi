@@ -1,0 +1,4 @@
+epicsEnvSet("ARCH","linux-arm")
+epicsEnvSet("IOC","iocraspberryPi2")
+epicsEnvSet("TOP","/home/pi/yifans-workspace/ledPi/raspberryPi2")
+epicsEnvSet("EPICS_BASE","/hls/epics/base-3.14.12.5")

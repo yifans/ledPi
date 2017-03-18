@@ -1,0 +1,5 @@
+record(bo, "ledPi:bo")
+{
+    field(DESC, "ledPi:bo")
+    field(DTYP, "ledPi")
+}
