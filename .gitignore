@@ -31,3 +31,10 @@
 # Debug files
 *.dSYM/
 *.su
+
+
+# EPICS Build files
+O.*
+bin
+db
+dbd

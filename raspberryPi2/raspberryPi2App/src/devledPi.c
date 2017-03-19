@@ -13,9 +13,7 @@
 //#include "link.h"
 #include "epicsExport.h"
 
-long init_record();
-long init_bo();
-long write_bo();
+#include <devledPi.h>
 
 struct { /* binary output dset */
     long        number;
@@ -41,11 +39,29 @@ long init_record()
 }
 long init_bo()
 {
+    if(wiringPiSetupGpio() == -1)
+    {
+        printf("Setup wiringPi failed!");
+        return -1;
+    }
+    pinMode(GPIO_PIN, OUTPUT);
     printf("devledPi init bo.\n");
     return 0;
 }
-long write_bo() 
+long write_bo(boRecord * precord) 
 {
+    int value = precord->rval;
+    if(value == 0)
+    {
+        printf("value == %d\n",value);
+        digitalWrite(GPIO_PIN, 0);
+    }
+    else
+    {
+        printf("value == %d\n",value);
+        digitalWrite(GPIO_PIN, 1);
+    }
+        
     printf("devledPi write bo.\n");
     return 0;
 }

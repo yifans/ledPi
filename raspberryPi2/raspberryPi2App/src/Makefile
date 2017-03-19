@@ -4,10 +4,13 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
+#DBD += ledPi.dbd
+
 LIBRARY_IOC += ledPi
-DBD += ledPi.dbd
-ledPi_SRCS += devledPi.c 
 ledPi_LIBS += $(EPICS_BASE_IOC_LIBS)
+wiringPi_DIR += /usr/lib
+ledPi_LIBS += wiringPi
+ledPi_SRCS += devledPi.c 
 #=============================
 # Build the IOC application
 
