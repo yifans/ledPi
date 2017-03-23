@@ -11,6 +11,7 @@ ledPi_LIBS += $(EPICS_BASE_IOC_LIBS)
 wiringPi_DIR += /usr/lib
 ledPi_LIBS += wiringPi
 ledPi_SRCS += devledPi.c 
+ledPi_SRCS += drvledPi.c 
 #=============================
 # Build the IOC application
 

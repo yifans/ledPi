@@ -18,6 +18,9 @@ int main(int argc,char *argv[])
         epicsThreadSleep(.2);
     }
     iocsh(NULL);
+    printf("iocsh is exited\n");
+    printf("before epicsExit is called\n");
     epicsExit(0);
+    printf("after epicsExit is called\n");
     return(0);
 }

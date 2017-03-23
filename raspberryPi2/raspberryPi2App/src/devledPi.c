@@ -12,6 +12,7 @@
 #include "recSup.h"
 //#include "link.h"
 #include "epicsExport.h"
+#include "epicsExit.h"
 
 #include <devledPi.h>
 
@@ -32,9 +33,19 @@ struct { /* binary output dset */
 };
 epicsExportAddress(dset, devledPi);
 
+
+static void pi_exit(void *pvt)
+{
+    printf("pi exit is called\n");
+    digitalWrite(GPIO_PIN, 0);
+}
+
+
+
 long init_record()
 {
     printf("devledPi init record.\n");
+    epicsAtExit(pi_exit, NULL);
     return 0;
 }
 long init_bo()
@@ -65,3 +76,4 @@ long write_bo(boRecord * precord)
     printf("devledPi write bo.\n");
     return 0;
 }
+

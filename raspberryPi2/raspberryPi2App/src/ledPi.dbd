@@ -1,1 +1,2 @@
 device(bo, CONSTANT, devledPi, "ledPi")
+driver(drvledPi)
